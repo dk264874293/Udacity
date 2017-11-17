@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://udacity.github.io/news-aggregator/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#FF6F00">
+
+  <script src="./udacity.github.io_files/handlebars-v3.0.0.js"></script>
+  <script>
+  if (typeof window.Intl !== 'undefined') {
+    document.write('<script src="third_party/handlebars-intl.min.js"><\/script>');
+  }
+  </script><script src="./udacity.github.io_files/handlebars-intl.min.js"></script>
+
+  <script id="tmpl-story" type="text/x-handlebars-template">
+    <h1 class="story__title">{{ title }}</h1>
+    <div class="story__score">{{ score }}</div>
+    <div class="story__by">Posted by {{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}
+    </div>
+  </script>
+
+  <script id="tmpl-story-details" type="text/x-handlebars-template">
+    <header class="story-details__header js-header">
+      <h1 class="story-details__title">{{ title }}{{#if url }} <a class="story-details__title-link" href="{{url}}">({{ urlobj.hostname }})</a>{{/if}}</h1>
+      <button class="story-details__close js-close">Close</button>
+      <section class="story-details__meta">
+        Posted by {{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}
+      </section>
+    </header>
+
+    <section class="story-details__content js-content">
+      <div>
+        <a class="story-details__link" href="{{ url }}">Visit site</a>
+      </div>
+
+      {{#if kids}}
+      <section class="story-details__comments js-comments">
+        <h2 class="story-details__comments-title">Comments</h2>
+      </section>
+      {{/if}}
+    </section>
+  </script>
+
+  <script id="tmpl-story-details-comment" type="text/x-handlebars-template">
+    <p class="story-details-comment__author">{{ by }}{{#if time }}, {{ formatRelative time }}{{/if }}</p>
+    <div class="story-details-comment__text">{{{ text }}}</div>
+  </script>
+
+  <link href="./udacity.github.io_files/css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./udacity.github.io_files/app.css">
+
+  <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+
+  <body>
+
+    <header class="header">
+
+      <div class="header__title-wrapper">
+        <h1 class="header__title">Hacker News</h1>
+        <h2 class="header__subhead">Top Stories</h2>
+      </div>
+
+    </header>
+
+    <main class="">
+    <div id="s-14836653" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.998944;">Is Kite taking over open source tools and injecting ads and spyware into them?</h1>
+    <div class="story__score" style="width: 39.9958px; height: 39.9958px; line-height: 39.9958px; background-color: rgb(254, 178, 0);">234</div>
+    <div class="story__by">Posted by posnet, 4 hours ago
+    </div>
+  </div><div id="s-14834672" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.951426;">Pev: Postgres ‘Explain’ Visualizer</h1>
+    <div class="story__score" style="width: 39.8057px; height: 39.8057px; line-height: 39.8057px; background-color: rgb(242, 173, 12);">445</div>
+    <div class="story__by">Posted by insulanian, 14 hours ago
+    </div>
+  </div><div id="s-14836265" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.903907;">Host your own contacts and calendars and share them across devices</h1>
+    <div class="story__score" style="width: 39.6156px; height: 39.6156px; line-height: 39.6156px; background-color: rgb(230, 169, 24);">65</div>
+    <div class="story__by">Posted by acidburnNSA, 6 hours ago
+    </div>
+  </div><div id="s-14832933" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.856389;">The gig economy of the 18th Century</h1>
+    <div class="story__score" style="width: 39.4256px; height: 39.4256px; line-height: 39.4256px; background-color: rgb(218, 164, 36);">72</div>
+    <div class="story__by">Posted by happy-go-lucky, 20 hours ago
+    </div>
+  </div><div id="s-14835977" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.80887;">Learn Ethereum smart contract programming</h1>
+    <div class="story__score" style="width: 39.2355px; height: 39.2355px; line-height: 39.2355px; background-color: rgb(206, 159, 48);">138</div>
+    <div class="story__by">Posted by ym705, 7 hours ago
+    </div>
+  </div><div id="s-14835921" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.761352;">Petoskey stone</h1>
+    <div class="story__score" style="width: 39.0454px; height: 39.0454px; line-height: 39.0454px; background-color: rgb(193, 154, 61);">46</div>
+    <div class="story__by">Posted by curtis, 8 hours ago
+    </div>
+  </div><div id="s-14835515" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.713833;">18yo arrested for reporting a bug in the new Budapest e-Ticket system</h1>
+    <div class="story__score" style="width: 38.8553px; height: 38.8553px; line-height: 38.8553px; background-color: rgb(181, 149, 73);">532</div>
+    <div class="story__by">Posted by atleta, 10 hours ago
+    </div>
+  </div><div id="s-14836013" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.666315;">Ask HN: Best-architected open-source business applications worth studying?</h1>
+    <div class="story__score" style="width: 38.6653px; height: 38.6653px; line-height: 38.6653px; background-color: rgb(169, 144, 85);">117</div>
+    <div class="story__by">Posted by ghosthamlet, 7 hours ago
+    </div>
+  </div><div id="s-14834390" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.618796;">MIT's Pathway to Fusion Energy [video]</h1>
+    <div class="story__score" style="width: 38.4752px; height: 38.4752px; line-height: 38.4752px; background-color: rgb(157, 139, 97);">113</div>
+    <div class="story__by">Posted by mozumder, 15 hours ago
+    </div>
+  </div><div id="s-14810963" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.571278;">The best defense against malicious AI is AI</h1>
+    <div class="story__score" style="width: 38.2851px; height: 38.2851px; line-height: 38.2851px; background-color: rgb(145, 135, 109);">84</div>
+    <div class="story__by">Posted by etiam, 4 days ago
+    </div>
+  </div><div id="s-14836737" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.523759;">Microsoft/.Net Foundation added telemetry to the dotnet command line last year</h1>
+    <div class="story__score" style="width: 38.095px; height: 38.095px; line-height: 38.095px; background-color: rgb(133, 130, 121);">75</div>
+    <div class="story__by">Posted by mel919, 4 hours ago
+    </div>
+  </div><div id="s-14834386" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.476241;">Status update from the Reproducible Builds project</h1>
+    <div class="story__score" style="width: 37.905px; height: 37.905px; line-height: 37.905px; background-color: rgb(127, 127, 127);">273</div>
+    <div class="story__by">Posted by lamby, 15 hours ago
+    </div>
+  </div><div id="s-14833353" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.428722;">Most open-source software is libraries or frameworks</h1>
+    <div class="story__score" style="width: 37.7149px; height: 37.7149px; line-height: 37.7149px; background-color: rgb(127, 127, 127);">83</div>
+    <div class="story__by">Posted by bhjs2, 19 hours ago
+    </div>
+  </div><div id="s-14833793" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.381204;">Wilbur Wright's Letter to the Smithsonian (1899)</h1>
+    <div class="story__score" style="width: 37.5248px; height: 37.5248px; line-height: 37.5248px; background-color: rgb(127, 127, 127);">23</div>
+    <div class="story__by">Posted by sethbannon, 17 hours ago
+    </div>
+  </div><div id="s-14833115" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.333685;">Fast-key-erasure random-number generators</h1>
+    <div class="story__score" style="width: 37.3347px; height: 37.3347px; line-height: 37.3347px; background-color: rgb(127, 127, 127);">33</div>
+    <div class="story__by">Posted by fanf2, 20 hours ago
+    </div>
+  </div><div id="s-14835256" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.286167;">Let’s Get Excited About Maintenance</h1>
+    <div class="story__score" style="width: 37.1447px; height: 37.1447px; line-height: 37.1447px; background-color: rgb(127, 127, 127);">182</div>
+    <div class="story__by">Posted by nothinggoesaway, 11 hours ago
+    </div>
+  </div><div id="s-14833999" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.238648;">A Practical Guide to Tree-Based Learning Algorithms</h1>
+    <div class="story__score" style="width: 36.9546px; height: 36.9546px; line-height: 36.9546px; background-color: rgb(127, 127, 127);">231</div>
+    <div class="story__by">Posted by sadanand4singh, 17 hours ago
+    </div>
+  </div><div id="s-14832480" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.19113;">The “Million Dollar Homepage” as a Decaying Digital Artifact</h1>
+    <div class="story__score" style="width: 36.7645px; height: 36.7645px; line-height: 36.7645px; background-color: rgb(127, 127, 127);">368</div>
+    <div class="story__by">Posted by sjmurdoch, 21 hours ago
+    </div>
+  </div><div id="s-14833633" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.143611;">Schizophrenia’s Tangled Roots</h1>
+    <div class="story__score" style="width: 36.5744px; height: 36.5744px; line-height: 36.5744px; background-color: rgb(127, 127, 127);">29</div>
+    <div class="story__by">Posted by antigizmo, 18 hours ago
+    </div>
+  </div><div id="s-14836749" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.0960929;">Fire And Motion (2002)</h1>
+    <div class="story__score" style="width: 36.3844px; height: 36.3844px; line-height: 36.3844px; background-color: rgb(127, 127, 127);">31</div>
+    <div class="story__by">Posted by joebaf, 4 hours ago
+    </div>
+  </div><div id="s-14828105" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.0485744;">Maine growers cultivate gourmet mushrooms</h1>
+    <div class="story__score" style="width: 36.1943px; height: 36.1943px; line-height: 36.1943px; background-color: rgb(127, 127, 127);">47</div>
+    <div class="story__by">Posted by Mz, 2 days ago
+    </div>
+  </div><div id="s-14834377" class="story clickable">
+    <h1 class="story__title" style="opacity: 0.00105597;">What it’s like to ship yourself overnight on Cabin’s sleep pod bus</h1>
+    <div class="story__score" style="width: 36.0042px; height: 36.0042px; line-height: 36.0042px; background-color: rgb(127, 127, 127);">46</div>
+    <div class="story__by">Posted by thelinuxkid, 15 hours ago
+    </div>
+  </div><div id="s-14817879" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.0464625;">Many of the best Scrabble players are Thais who don't speak English (2014)</h1>
+    <div class="story__score" style="width: 35.8141px; height: 35.8141px; line-height: 35.8141px; background-color: rgb(127, 127, 127);">45</div>
+    <div class="story__by">Posted by Tomte, 3 days ago
+    </div>
+  </div><div id="s-14832207" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.093981;">Android Killed Windows Phone, Not Apple</h1>
+    <div class="story__score" style="width: 35.6241px; height: 35.6241px; line-height: 35.6241px; background-color: rgb(127, 127, 127);">94</div>
+    <div class="story__by">Posted by mpweiher, yesterday
+    </div>
+  </div><div id="s-14831290" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.141499;">What are covariance and contravariance?</h1>
+    <div class="story__score" style="width: 35.434px; height: 35.434px; line-height: 35.434px; background-color: rgb(127, 127, 127);">166</div>
+    <div class="story__by">Posted by beliu, yesterday
+    </div>
+  </div><div id="s-14837260" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.189018;">Microsoft is planning to kill off Paint after 32 years</h1>
+    <div class="story__score" style="width: 35.2439px; height: 35.2439px; line-height: 35.2439px; background-color: rgb(127, 127, 127);">54</div>
+    <div class="story__by">Posted by barking, 2 hours ago
+    </div>
+  </div><div id="s-14833554" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.236536;">How Wi-Fi Works</h1>
+    <div class="story__score" style="width: 35.0539px; height: 35.0539px; line-height: 35.0539px; background-color: rgb(127, 127, 127);">266</div>
+    <div class="story__by">Posted by sharjeelsayed, 18 hours ago
+    </div>
+  </div><div id="s-14832622" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.284055;">Printed Solar Panels for Less Than $10 a Square Metre</h1>
+    <div class="story__score" style="width: 34.8638px; height: 34.8638px; line-height: 34.8638px; background-color: rgb(127, 127, 127);">208</div>
+    <div class="story__by">Posted by dakna, 21 hours ago
+    </div>
+  </div><div id="s-14833150" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.331573;">How about an “urban wealth fund”?</h1>
+    <div class="story__score" style="width: 34.6737px; height: 34.6737px; line-height: 34.6737px; background-color: rgb(127, 127, 127);">21</div>
+    <div class="story__by">Posted by jseliger, 19 hours ago
+    </div>
+  </div><div id="s-14830671" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.379092;">Computational Linear Algebra</h1>
+    <div class="story__score" style="width: 34.4836px; height: 34.4836px; line-height: 34.4836px; background-color: rgb(127, 127, 127);">478</div>
+    <div class="story__by">Posted by julianj, yesterday
+    </div>
+  </div><div id="s-14832045" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.42661;">Redis on Acid: 0.5M ops/sec, 1ms latency and ACID compliance</h1>
+    <div class="story__score" style="width: 34.2936px; height: 34.2936px; line-height: 34.2936px; background-color: rgb(127, 127, 127);">144</div>
+    <div class="story__by">Posted by dvirsky, yesterday
+    </div>
+  </div><div id="s-14832166" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.474129;">The Emerging Science of Computational Psychiatry</h1>
+    <div class="story__score" style="width: 34.1035px; height: 34.1035px; line-height: 34.1035px; background-color: rgb(127, 127, 127);">36</div>
+    <div class="story__by">Posted by Osiris30, yesterday
+    </div>
+  </div><div id="s-14832874" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.521647;">VPN crackdown ‘unthinkable’ trial by firewall for China’s research world</h1>
+    <div class="story__score" style="width: 33.9134px; height: 33.9134px; line-height: 33.9134px; background-color: rgb(127, 127, 127);">111</div>
+    <div class="story__by">Posted by Sami_Lehtinen, 20 hours ago
+    </div>
+  </div><div id="s-14834318" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.569166;">GHC 8.2 Released</h1>
+    <div class="story__score" style="width: 33.7233px; height: 33.7233px; line-height: 33.7233px; background-color: rgb(127, 127, 127);">79</div>
+    <div class="story__by">Posted by houli, 15 hours ago
+    </div>
+  </div><div id="s-14833285" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.616684;">The Odin Project – Learn Web Development for Free</h1>
+    <div class="story__score" style="width: 33.5333px; height: 33.5333px; line-height: 33.5333px; background-color: rgb(127, 127, 127);">124</div>
+    <div class="story__by">Posted by gkop, 19 hours ago
+    </div>
+  </div><div id="s-14831703" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.664203;">Measuring HTTPS Adoption on the Web [pdf]</h1>
+    <div class="story__score" style="width: 33.3432px; height: 33.3432px; line-height: 33.3432px; background-color: rgb(127, 127, 127);">24</div>
+    <div class="story__by">Posted by okket, yesterday
+    </div>
+  </div><div id="s-14835114" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.711721;">How Much Are People Making from the Sharing Economy?</h1>
+    <div class="story__score" style="width: 33.1531px; height: 33.1531px; line-height: 33.1531px; background-color: rgb(127, 127, 127);">102</div>
+    <div class="story__by">Posted by katiey, 12 hours ago
+    </div>
+  </div><div id="s-14833269" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.75924;">Thanks to Venmo, We Now All Know How Cheap Our Friends Are</h1>
+    <div class="story__score" style="width: 32.963px; height: 32.963px; line-height: 32.963px; background-color: rgb(127, 127, 127);">142</div>
+    <div class="story__by">Posted by gk1, 19 hours ago
+    </div>
+  </div><div id="s-14833018" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.806758;">German energy company wants to build flow batteries in old natural gas caverns</h1>
+    <div class="story__score" style="width: 32.773px; height: 32.773px; line-height: 32.773px; background-color: rgb(127, 127, 127);">79</div>
+    <div class="story__by">Posted by Tomte, 20 hours ago
+    </div>
+  </div><div id="s-14832918" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.854277;">Program Development by Stepwise Refinement (1971)</h1>
+    <div class="story__score" style="width: 32.5829px; height: 32.5829px; line-height: 32.5829px; background-color: rgb(127, 127, 127);">13</div>
+    <div class="story__by">Posted by breck, 20 hours ago
+    </div>
+  </div><div id="s-14836037" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.901795;">Streak (YC S11) Is Hiring a Chief of Staff and Operations Manager</h1>
+    <div class="story__score" style="width: 32.3928px; height: 32.3928px; line-height: 32.3928px; background-color: rgb(127, 127, 127);">1</div>
+    <div class="story__by">Posted by alooPotato, 7 hours ago
+    </div>
+  </div><div id="s-14835367" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.949314;">Should we break up the big tech companies?</h1>
+    <div class="story__score" style="width: 32.2027px; height: 32.2027px; line-height: 32.2027px; background-color: rgb(127, 127, 127);">11</div>
+    <div class="story__by">Posted by tsunamifury, 11 hours ago
+    </div>
+  </div><div id="s-14833488" class="story clickable">
+    <h1 class="story__title" style="opacity: -0.996832;">Validating materials and lights in Stingray</h1>
+    <div class="story__score" style="width: 32.0127px; height: 32.0127px; line-height: 32.0127px; background-color: rgb(127, 127, 127);">7</div>
+    <div class="story__by">Posted by Impossible, 18 hours ago
+    </div>
+  </div><div id="s-14833031" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.04435;">Mario Kart director philosophical about need for the blue shell</h1>
+    <div class="story__score" style="width: 31.8226px; height: 31.8226px; line-height: 31.8226px; background-color: rgb(127, 127, 127);">28</div>
+    <div class="story__by">Posted by Tomte, 20 hours ago
+    </div>
+  </div><div id="s-14832249" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.09187;">Pittsburgh Gets a Tech Makeover</h1>
+    <div class="story__score" style="width: 31.6325px; height: 31.6325px; line-height: 31.6325px; background-color: rgb(127, 127, 127);">124</div>
+    <div class="story__by">Posted by danso, yesterday
+    </div>
+  </div><div id="s-14832371" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.13939;">The Seven or Eight Keplerian Elements</h1>
+    <div class="story__score" style="width: 31.4424px; height: 31.4424px; line-height: 31.4424px; background-color: rgb(127, 127, 127);">21</div>
+    <div class="story__by">Posted by privong, yesterday
+    </div>
+  </div><div id="s-14833966" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.18691;">Accounts of the financial crisis leave out the dollar swap deals between banks</h1>
+    <div class="story__score" style="width: 31.2524px; height: 31.2524px; line-height: 31.2524px; background-color: rgb(127, 127, 127);">74</div>
+    <div class="story__by">Posted by drtillberg, 17 hours ago
+    </div>
+  </div><div id="s-14833067" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.23442;">The Fitzgerald's Watch Team Could Have Been Mine</h1>
+    <div class="story__score" style="width: 31.0623px; height: 31.0623px; line-height: 31.0623px; background-color: rgb(127, 127, 127);">45</div>
+    <div class="story__by">Posted by curtis, 20 hours ago
+    </div>
+  </div><div id="s-14831905" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.28194;">Bringing neural networks to cellphones</h1>
+    <div class="story__score" style="width: 30.8722px; height: 30.8722px; line-height: 30.8722px; background-color: rgb(127, 127, 127);">21</div>
+    <div class="story__by">Posted by jonbaer, yesterday
+    </div>
+  </div><div id="s-14832340" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.32946;">The Next Generation of Web Gaming</h1>
+    <div class="story__score" style="width: 30.6822px; height: 30.6822px; line-height: 30.6822px; background-color: rgb(127, 127, 127);">29</div>
+    <div class="story__by">Posted by happy-go-lucky, yesterday
+    </div>
+  </div><div id="s-14831961" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.37698;">Ink: React for interactive command-line apps</h1>
+    <div class="story__score" style="width: 30.4921px; height: 30.4921px; line-height: 30.4921px; background-color: rgb(127, 127, 127);">115</div>
+    <div class="story__by">Posted by ingve, yesterday
+    </div>
+  </div><div id="s-14832651" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.4245;">Performance Visualization for Elixir apps</h1>
+    <div class="story__score" style="width: 30.302px; height: 30.302px; line-height: 30.302px; background-color: rgb(127, 127, 127);">93</div>
+    <div class="story__by">Posted by iacobson, 21 hours ago
+    </div>
+  </div><div id="s-14833630" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.47202;">Yahoo reinvented inline styles through classes</h1>
+    <div class="story__score" style="width: 30.1119px; height: 30.1119px; line-height: 30.1119px; background-color: rgb(127, 127, 127);">143</div>
+    <div class="story__by">Posted by troels, 18 hours ago
+    </div>
+  </div><div id="s-14829956" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.51954;">Yellowstone Bears Eat 40K Moths a Day in August</h1>
+    <div class="story__score" style="width: 29.9219px; height: 29.9219px; line-height: 29.9219px; background-color: rgb(127, 127, 127);">235</div>
+    <div class="story__by">Posted by curtis, 2 days ago
+    </div>
+  </div><div id="s-14835609" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.56705;">Is 7nm the Last Major Node?</h1>
+    <div class="story__score" style="width: 29.7318px; height: 29.7318px; line-height: 29.7318px; background-color: rgb(127, 127, 127);">23</div>
+    <div class="story__by">Posted by SemiTom, 9 hours ago
+    </div>
+  </div><div id="s-14826844" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.61457;">Open Bazaar – decentralized Bitcoin marketplace</h1>
+    <div class="story__score" style="width: 29.5417px; height: 29.5417px; line-height: 29.5417px; background-color: rgb(127, 127, 127);">389</div>
+    <div class="story__by">Posted by amingilani, 2 days ago
+    </div>
+  </div><div id="s-14826354" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.66209;">Iceland drilling project aims to unearth how islands form</h1>
+    <div class="story__score" style="width: 29.3516px; height: 29.3516px; line-height: 29.3516px; background-color: rgb(127, 127, 127);">7</div>
+    <div class="story__by">Posted by etiam, 2 days ago
+    </div>
+  </div><div id="s-14835688" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.70961;">Ask HN: Is there mandarin speech-to-text API with result confidence per word?</h1>
+    <div class="story__score" style="width: 29.1616px; height: 29.1616px; line-height: 29.1616px; background-color: rgb(127, 127, 127);">8</div>
+    <div class="story__by">Posted by sammyjiang, 9 hours ago
+    </div>
+  </div><div id="s-14831794" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.75713;">iNaturalist Computer Vision Explorations</h1>
+    <div class="story__score" style="width: 28.9715px; height: 28.9715px; line-height: 28.9715px; background-color: rgb(127, 127, 127);">11</div>
+    <div class="story__by">Posted by sehugg, yesterday
+    </div>
+  </div><div id="s-14831910" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.80465;">How do I know if I'm good at programming?</h1>
+    <div class="story__score" style="width: 28.7814px; height: 28.7814px; line-height: 28.7814px; background-color: rgb(127, 127, 127);">181</div>
+    <div class="story__by">Posted by danielslater, yesterday
+    </div>
+  </div><div id="s-14832524" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.85216;">The People Behind OpenAI</h1>
+    <div class="story__score" style="width: 28.5913px; height: 28.5913px; line-height: 28.5913px; background-color: rgb(127, 127, 127);">75</div>
+    <div class="story__by">Posted by allenleein, 21 hours ago
+    </div>
+  </div><div id="s-14831802" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.89968;">Artificial Intelligence, Poker, and Regret</h1>
+    <div class="story__score" style="width: 28.4013px; height: 28.4013px; line-height: 28.4013px; background-color: rgb(127, 127, 127);">109</div>
+    <div class="story__by">Posted by matco11, yesterday
+    </div>
+  </div><div id="s-14834714" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.9472;">Singapore Startup Counts on Visa to Take Bitcoin into Real World</h1>
+    <div class="story__score" style="width: 28.2112px; height: 28.2112px; line-height: 28.2112px; background-color: rgb(127, 127, 127);">8</div>
+    <div class="story__by">Posted by discombobulate, 14 hours ago
+    </div>
+  </div><div id="s-14831715" class="story clickable">
+    <h1 class="story__title" style="opacity: -1.99472;">Telescope design promises to revolutionize amateur astronomy</h1>
+    <div class="story__score" style="width: 28.0211px; height: 28.0211px; line-height: 28.0211px; background-color: rgb(127, 127, 127);">63</div>
+    <div class="story__by">Posted by Santosh83, yesterday
+    </div>
+  </div><div id="s-14819125" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.04224;">Pascal at Apple</h1>
+    <div class="story__score" style="width: 27.831px; height: 27.831px; line-height: 27.831px; background-color: rgb(127, 127, 127);">177</div>
+    <div class="story__by">Posted by janvdberg, 3 days ago
+    </div>
+  </div><div id="s-14831676" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.08976;">Ask HN: What do people use to prevent crawlers?</h1>
+    <div class="story__score" style="width: 27.641px; height: 27.641px; line-height: 27.641px; background-color: rgb(127, 127, 127);">110</div>
+    <div class="story__by">Posted by jongi_ct, yesterday
+    </div>
+  </div><div id="s-14831565" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.13728;">Smith: A microcontainer builder</h1>
+    <div class="story__score" style="width: 27.4509px; height: 27.4509px; line-height: 27.4509px; background-color: rgb(127, 127, 127);">31</div>
+    <div class="story__by">Posted by loppers92, yesterday
+    </div>
+  </div><div id="s-14829928" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.18479;">Satellites Taking Pictures of Rockets Carrying More Satellites</h1>
+    <div class="story__score" style="width: 27.2608px; height: 27.2608px; line-height: 27.2608px; background-color: rgb(127, 127, 127);">207</div>
+    <div class="story__by">Posted by privong, 2 days ago
+    </div>
+  </div><div id="s-14834941" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.23231;">Google Cloud Now Available in Sydney and Singapore</h1>
+    <div class="story__score" style="width: 27.0707px; height: 27.0707px; line-height: 27.0707px; background-color: rgb(127, 127, 127);">9</div>
+    <div class="story__by">Posted by mosen, 13 hours ago
+    </div>
+  </div><div id="s-14833376" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.27983;">Germans in the race to bring electric cars to market</h1>
+    <div class="story__score" style="width: 26.8807px; height: 26.8807px; line-height: 26.8807px; background-color: rgb(127, 127, 127);">70</div>
+    <div class="story__by">Posted by Tomte, 19 hours ago
+    </div>
+  </div><div id="s-14832476" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.32735;">Creating a WebAssembly module instance with JavaScript</h1>
+    <div class="story__score" style="width: 26.6906px; height: 26.6906px; line-height: 26.6906px; background-color: rgb(127, 127, 127);">19</div>
+    <div class="story__by">Posted by happy-go-lucky, 21 hours ago
+    </div>
+  </div><div id="s-14832537" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.37487;">New research in cows that were immunised against HIV</h1>
+    <div class="story__score" style="width: 26.5005px; height: 26.5005px; line-height: 26.5005px; background-color: rgb(127, 127, 127);">42</div>
+    <div class="story__by">Posted by happy-go-lucky, 21 hours ago
+    </div>
+  </div><div id="s-14832517" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.42239;">TLS 1.3 in enterprise networks</h1>
+    <div class="story__score" style="width: 26.3105px; height: 26.3105px; line-height: 26.3105px; background-color: rgb(127, 127, 127);">151</div>
+    <div class="story__by">Posted by dankohn1, 21 hours ago
+    </div>
+  </div><div id="s-14831918" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.4699;">Why Are Coding Bootcamps Going Out of Business?</h1>
+    <div class="story__score" style="width: 26.1204px; height: 26.1204px; line-height: 26.1204px; background-color: rgb(127, 127, 127);">125</div>
+    <div class="story__by">Posted by imartin2k, yesterday
+    </div>
+  </div><div id="s-14817781" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.51742;">The Decline of Investment in San Francisco Startups</h1>
+    <div class="story__score" style="width: 25.9303px; height: 25.9303px; line-height: 25.9303px; background-color: rgb(127, 127, 127);">254</div>
+    <div class="story__by">Posted by kawera, 3 days ago
+    </div>
+  </div><div id="s-14835378" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.56494;">Minimum Wage and Job Loss: One Alarming Seattle Study Is Not the Last Word</h1>
+    <div class="story__score" style="width: 25.7402px; height: 25.7402px; line-height: 25.7402px; background-color: rgb(127, 127, 127);">33</div>
+    <div class="story__by">Posted by moritzplassnig, 10 hours ago
+    </div>
+  </div><div id="s-14831786" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.61246;">The Business of Artificial Intelligence</h1>
+    <div class="story__score" style="width: 25.5502px; height: 25.5502px; line-height: 25.5502px; background-color: rgb(127, 127, 127);">48</div>
+    <div class="story__by">Posted by matco11, yesterday
+    </div>
+  </div><div id="s-14831467" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.65998;">Scientific Realism in the Age of String Theory (2007) [pdf]</h1>
+    <div class="story__score" style="width: 25.3601px; height: 25.3601px; line-height: 25.3601px; background-color: rgb(127, 127, 127);">26</div>
+    <div class="story__by">Posted by lainon, yesterday
+    </div>
+  </div><div id="s-14833508" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.7075;">Is Productivity Growth Becoming Irrelevant?</h1>
+    <div class="story__score" style="width: 25.17px; height: 25.17px; line-height: 25.17px; background-color: rgb(127, 127, 127);">128</div>
+    <div class="story__by">Posted by mpweiher, 18 hours ago
+    </div>
+  </div><div id="s-14831503" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.75502;">Nations collaborating to build world's largest tokamak</h1>
+    <div class="story__score" style="width: 24.9799px; height: 24.9799px; line-height: 24.9799px; background-color: rgb(127, 127, 127);">70</div>
+    <div class="story__by">Posted by bryanrasmussen, yesterday
+    </div>
+  </div><div id="s-14831224" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.80253;">Sugar-sweetened drinks with protein rich meal affect metabolism</h1>
+    <div class="story__score" style="width: 24.7899px; height: 24.7899px; line-height: 24.7899px; background-color: rgb(127, 127, 127);">125</div>
+    <div class="story__by">Posted by nreece, yesterday
+    </div>
+  </div><div id="s-14817953" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.85005;">Salacious Convent Exposés Were the Most Popular Books in Antebellum America</h1>
+    <div class="story__score" style="width: 24.5998px; height: 24.5998px; line-height: 24.5998px; background-color: rgb(127, 127, 127);">21</div>
+    <div class="story__by">Posted by samclemens, 3 days ago
+    </div>
+  </div><div id="s-14833786" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.89757;">Ask HN: What's the best business for a tinkerer?</h1>
+    <div class="story__score" style="width: 24.4097px; height: 24.4097px; line-height: 24.4097px; background-color: rgb(127, 127, 127);">30</div>
+    <div class="story__by">Posted by cronjobma, 17 hours ago
+    </div>
+  </div><div id="s-14831278" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.94509;">Show HN: A simple SSH VPN client</h1>
+    <div class="story__score" style="width: 24.2196px; height: 24.2196px; line-height: 24.2196px; background-color: rgb(127, 127, 127);">104</div>
+    <div class="story__by">Posted by ivanilves, yesterday
+    </div>
+  </div><div id="s-14835372" class="story clickable">
+    <h1 class="story__title" style="opacity: -2.99261;">Fiction: Who Killed Windows Phone?</h1>
+    <div class="story__score" style="width: 24.0296px; height: 24.0296px; line-height: 24.0296px; background-color: rgb(127, 127, 127);">43</div>
+    <div class="story__by">Posted by KKKKkkkk1, 11 hours ago
+    </div>
+  </div><div id="s-14829701" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.04013;">Using Hilbert Curves to 100% Zelda</h1>
+    <div class="story__score" style="width: 23.8395px; height: 23.8395px; line-height: 23.8395px; background-color: rgb(127, 127, 127);">162</div>
+    <div class="story__by">Posted by Merovius, 2 days ago
+    </div>
+  </div><div id="s-14833205" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.08765;">Mystic coolness</h1>
+    <div class="story__score" style="width: 23.6494px; height: 23.6494px; line-height: 23.6494px; background-color: rgb(127, 127, 127);">27</div>
+    <div class="story__by">Posted by prismatic, 19 hours ago
+    </div>
+  </div><div id="s-14831739" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.13516;">Euclid's Orchard, the Euclidean algorithm, and Fibonacci numbers, with pictures</h1>
+    <div class="story__score" style="width: 23.4593px; height: 23.4593px; line-height: 23.4593px; background-color: rgb(127, 127, 127);">31</div>
+    <div class="story__by">Posted by ColinWright, yesterday
+    </div>
+  </div><div id="s-14833105" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.18268;">Coding is the new cursive writing – and we have to embrace it</h1>
+    <div class="story__score" style="width: 23.2693px; height: 23.2693px; line-height: 23.2693px; background-color: rgb(127, 127, 127);">9</div>
+    <div class="story__by">Posted by cdl, 20 hours ago
+    </div>
+  </div><div id="s-14831747" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.2302;">A new theory sheds light on the emergence of life’s complexity</h1>
+    <div class="story__score" style="width: 23.0792px; height: 23.0792px; line-height: 23.0792px; background-color: rgb(127, 127, 127);">84</div>
+    <div class="story__by">Posted by dnetesn, yesterday
+    </div>
+  </div><div id="s-14830163" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.27772;">Give in to Procrastination and Stop Prefetching (2013) [pdf]</h1>
+    <div class="story__score" style="width: 22.8891px; height: 22.8891px; line-height: 22.8891px; background-color: rgb(127, 127, 127);">116</div>
+    <div class="story__by">Posted by lainon, yesterday
+    </div>
+  </div><div id="s-14833672" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.32524;">One Family, Many Revolutions</h1>
+    <div class="story__score" style="width: 22.699px; height: 22.699px; line-height: 22.699px; background-color: rgb(127, 127, 127);">5</div>
+    <div class="story__by">Posted by gk1, 18 hours ago
+    </div>
+  </div><div id="s-14835179" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.37276;">San Jose businesswoman pleads guilty to H1-B visa fraud</h1>
+    <div class="story__score" style="width: 22.509px; height: 22.509px; line-height: 22.509px; background-color: rgb(127, 127, 127);">10</div>
+    <div class="story__by">Posted by MilnerRoute, 12 hours ago
+    </div>
+  </div><div id="s-14821478" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.42027;">Show HN: $200 Solar Self-Sufficiency  Without Your Landlord Noticing</h1>
+    <div class="story__score" style="width: 22.3189px; height: 22.3189px; line-height: 22.3189px; background-color: rgb(127, 127, 127);">462</div>
+    <div class="story__by">Posted by nikodunk, 3 days ago
+    </div>
+  </div><div id="s-14819377" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.46779;">Claude Shannon: How a Genius Thinks, Works, and Lives</h1>
+    <div class="story__score" style="width: 22.1288px; height: 22.1288px; line-height: 22.1288px; background-color: rgb(127, 127, 127);">356</div>
+    <div class="story__by">Posted by seycombi, 3 days ago
+    </div>
+  </div><div id="s-14825716" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.51531;">The Illuminating Geometry of Viruses</h1>
+    <div class="story__score" style="width: 21.9388px; height: 21.9388px; line-height: 21.9388px; background-color: rgb(127, 127, 127);">116</div>
+    <div class="story__by">Posted by algui91, 2 days ago
+    </div>
+  </div><div id="s-14831873" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.56283;">Fukushima disaster: Robot finds possible melted nuclear fuel</h1>
+    <div class="story__score" style="width: 21.7487px; height: 21.7487px; line-height: 21.7487px; background-color: rgb(127, 127, 127);">62</div>
+    <div class="story__by">Posted by louthy, yesterday
+    </div>
+  </div><div id="s-14834641" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.61035;">Dating for nerds (part 1): problem diagnosis</h1>
+    <div class="story__score" style="width: 21.5586px; height: 21.5586px; line-height: 21.5586px; background-color: rgb(127, 127, 127);">22</div>
+    <div class="story__by">Posted by stared, 14 hours ago
+    </div>
+  </div><div id="s-14832701" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.65787;">How much CO2 does a single volcano emit?</h1>
+    <div class="story__score" style="width: 21.3685px; height: 21.3685px; line-height: 21.3685px; background-color: rgb(127, 127, 127);">46</div>
+    <div class="story__by">Posted by finchisko, 21 hours ago
+    </div>
+  </div><div id="s-14831153" class="story clickable">
+    <h1 class="story__title" style="opacity: -3.70539;">Whatever became of the summer of love?</h1>
+    <div class="story__score" style="width: 21.1785px; height: 21.1785px; line-height: 21.1785px; background-color: rgb(127, 127, 127);">23</div>
+    <div class="story__by">Posted by samclemens, yesterday
+    </div>
+  </div></main>
+
+    <footer>
+      Powered by the <a href="https://github.com/HackerNews/API">Hacker News API</a>
+    </footer>
+
+    <script src="./udacity.github.io_files/namespace.js"></script>
+    <script src="./udacity.github.io_files/data.js"></script>
+    <script src="./udacity.github.io_files/app.js"></script>
+
+  
+
+<span id="sbmarwbth"></span></body></html>
