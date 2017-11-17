@@ -1,0 +1,78 @@
+/*默认样式清除*/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0
+}
+
+
+/* 初始化标签在所有浏览器中的margin、padding值 */
+
+fieldset,
+img {
+    border: 0 none
+}
+
+body {
+    background: #fff
+}
+
+
+/* 重置样式标签的样式 */
+
+img {
+    vertical-align: top
+}
+
+//清除浮动
+.clearFloat {
+    zoom: 1;
+    &:after {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 0px;
+        clear: both;
+        visibility: hidden
+    }
+}
+
+#blogContent {
+    padding: 40px 40px;
+    width: 1000px;
+    margin:0 auto;
+    .header{
+        >h1{
+            font-size: 32px;
+            line-height: 60px;
+        }
+        >p{
+            font-size: 14px;
+            line-height: 36px;
+        }
+    }
+    .content{
+        >p{
+            margin-top:20px;
+            font-size: 14px;
+            line-height: 28px;
+        }
+        >img{
+            margin-top: 20px;
+        }
+        >h3{
+            font-size: 24px;
+            margin-top: 20px;
+            line-height: 36px;;
+        }
+        >hr{
+            margin-top: 20px;
+        }
+    }
+}
