@@ -1,0 +1,34 @@
+/* 添加 CSS */
+body,ul,li,h3,p{
+	margin: 0px;
+	padding: 0px;
+}
+li{
+	list-style: none;
+}
+.content{
+	width: 300px;
+	padding: 20px;
+	margin: 20px auto;
+	border: 1px solid #ccc;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+	font-size: 14px;;
+}
+.content>h3{
+	font-size: 26px;
+	line-height: 3;
+}
+.Introduction{
+	width: 278px;
+	padding: 10px;
+	border: 1px solid #eee;
+	margin-top: 20px;
+}
+.Introduction>p{
+	line-height: 1.5;
+	margin: 4px auto;
+}
+.Introduction>ul{
+	line-height: 1.5;
+	margin: 20px auto;
+}
