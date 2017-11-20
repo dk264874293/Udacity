@@ -32,3 +32,6 @@ li{
 	line-height: 1.5;
 	margin: 20px auto;
 }
+.Introduction>ul span{
+	font-weight: bold;
+}
